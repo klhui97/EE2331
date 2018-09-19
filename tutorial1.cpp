@@ -22,6 +22,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
+#include <sstream>
 
 using namespace std;
 
@@ -61,7 +62,9 @@ char* bin2Text_IPv4(unsigned v)
     
     while (count < 4) {
         // Convert hex to decimal string
-        string stringValue = to_string(v / base);
+        stringstream ss;
+        ss << dec << v / base;
+        string stringValue = ss.str();
         int j = 0;
         while (stringValue[j] != '\0') {
             a[i++] = stringValue[j];
